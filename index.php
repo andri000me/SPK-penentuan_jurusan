@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<!-- bagian head hanya untuk import css dan javascript -->
 	<title>SPK_penentu_jurusan</title>
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
 	<link rel="stylesheet" type="text/css" href="css/risol.css">
@@ -12,24 +13,23 @@
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 </head>
 <body>
-<div class="container-fluid">
-	<nav class="navbar navbar-default">
+<div class="container-fluid"> <!-- container-fluid:class yang disediakan bootstrap untuk membuat konten full layout -->
+	<nav class="navbar navbar-default"> 
 		<div class="container">
 			<div class="navbar-header">
-				<a class="navbar-brand navbar-link" href="index.php?page=home">SPK-SMA</a>
+				<a class="navbar-brand navbar-link" href="index.php?page=home">SPK-SMA</a> 
 			</div>
-			<div class="collapse navbar-collapse" id="navcol-1" name="navcol-1">
+			<div class="navbar-collapse">
 				<UL class="nav navbar-nav navbar-right" >
-					<li role="presentation"><a href="index.php?halaman=home"> | Home</a></li>
-					<!-- <li role="presentation"><a href="index.php?halaman=nilai"> | Masukkan Nilai</a></li> -->
-					<!-- <li role="presentation"><a href="index.php?halaman=contact"><font color="white">Contact</font></a></li> -->
-					<li role="presentation"><a href="index.php?halaman=about"> | About</a></li>
+					<li ><a href="index.php?halaman=home"> | Home</a></li>
+					<li ><a href="index.php?halaman=about"> | About</a></li>
 				</UL>
 			</div>
 		</div>
 	</nav>
 </div>
 <!-- ============== BODY ============ -->
+<!-- pemilihan halaman dengan metode get ,misal http://localhost/spK-penentu_jurusan/index.php?halaman=about ,maka halaman yang dipanggil adalah about -->
 <?php 
 switch (@$_GET['halaman']) {
 	case 'home':
