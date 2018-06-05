@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 02, 2018 at 11:51 AM
+-- Generation Time: Jun 05, 2018 at 03:01 PM
 -- Server version: 10.1.28-MariaDB
 -- PHP Version: 7.1.11
 
@@ -43,10 +43,7 @@ CREATE TABLE `data_diri` (
 --
 
 INSERT INTO `data_diri` (`id`, `nama`, `alamat`, `smp`, `tgl_lahir`, `jk`, `agama`) VALUES
-('12', 'joni', 'wert', 'sdf', '2018-06-01', 'L', 'islam'),
-('14657', 'iqbal oktha', 'lamongan', 'smp 1 sekaran', '2016-06-03', 'L', 'islam'),
-('167834', 'joko rt', 'lamongan', 'smpn waru wetan', '2018-05-30', 'L', 'islam'),
-('28778781', 'eko', 'palembang', 'SMPN 1 palembang', '2018-05-31', 'L', 'islam');
+('1290878765', 'denis', 'Semarang', 'smpn 1 jakarta', '2006-06-07', 'L', 'islam');
 
 -- --------------------------------------------------------
 
@@ -72,12 +69,7 @@ CREATE TABLE `nilai` (
 --
 
 INSERT INTO `nilai` (`id`, `mtk`, `biologi`, `fisika`, `sejarah`, `geografi`, `bi`, `jurusan`, `tanggal`, `nisn`) VALUES
-(11, 39, 57, 12, 67, 22, 60, 'IPS', '2018-06-01', '12'),
-(12, 45, 39, 10, 34, 34, 45, 'IPS', '2018-06-01', '12'),
-(13, 55, 44, 33, 66, 77, 88, 'IPS', '2018-06-01', '12'),
-(14, 40, 30, 20, 20, 10, 12, 'Ipa', '2018-06-01', '167834'),
-(15, 10, 40, 70, 20, 70, 30, 'Keduannya', '2018-06-02', '14657'),
-(16, 30, 20, 70, 80, 60, 80, 'IPS', '2018-06-02', '28778781');
+(32, 70, 80, 90, 40, 50, 30, 'IPA', '2018-06-05', '1290878765');
 
 --
 -- Indexes for dumped tables
@@ -104,7 +96,7 @@ ALTER TABLE `nilai`
 -- AUTO_INCREMENT for table `nilai`
 --
 ALTER TABLE `nilai`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- Constraints for dumped tables

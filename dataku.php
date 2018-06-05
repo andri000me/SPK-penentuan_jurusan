@@ -19,6 +19,13 @@ $persen_ipa=(($nilai_ipa/$nilai_total)*100);
 $persen_ips=(($nilai_ips/$nilai_total)*100);
  ?>
  <div class="container">
+	<div class="col-sm-4"></div>
+	<div class="col-sm-4" style="background-color:greenyellow;font-size:30pt;text-align:center;">
+		<?php echo $kata ?>
+	</div>
+	<div class="col-sm-4"></div>
+</div>
+ <div class="container">
 	<div class="col-sm-6">
 	Input nilai pada tanggal:<?php echo $tanggal ?>
 		<div class="panel panel-info" style="margin-top:10px">
@@ -98,7 +105,7 @@ $persen_ips=(($nilai_ips/$nilai_total)*100);
 	            backgroundColor: 'rgb(255, 99, 132)',
 	            borderColor: 'rgb(255, 99, 132)',
 	            data: [<?php echo $biologi ?>, <?php echo $fisika ?>, <?php echo $mtk ?>, 
-	            <?php echo $sejarah ?>, <?php echo $geografi ?>, <?php echo $bi ?>],
+	            <?php echo $sejarah ?>, <?php echo $geografi ?>, <?php echo $bi ?>,0],
 	        }]
 	    	},
 
@@ -121,7 +128,7 @@ $persen_ips=(($nilai_ips/$nilai_total)*100);
 	            label: "Perbandingan",
 	            backgroundColor: ['rgb(0, 255, 255)','rgb(54, 162, 235)'],
 	            borderColor: 'rgb(255, 99, 132)',
-	            data: [<?php echo $persen_ipa ?>,<?php echo $persen_ips; ?>],
+	            data: [<?php echo $persen_ipa ?>,<?php echo $persen_ips; ?>,0,100],
 	        }]
 	    	},
 

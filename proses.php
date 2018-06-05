@@ -27,9 +27,16 @@ if ($cek=='y') {
 		$kata="Keduannya";
 	}
 
-	include"koneksi.php";
 	$tanggal=date('Y-m-d');
-	mysqli_query($konek,"INSERT INTO `nilai`( `mtk`, `biologi`, `fisika`, `sejarah`, `geografi`, `bi`, `jurusan`, `tanggal`, `nisn`) 
+
+	$datanilai=mysqli_query($konek,"SELECT * FROM `nilai` WHERE nisn=$nisn");
+	$no=0;
+	while ($new_dtanilai=mysqli_fetch_array($datanilai)) {
+		$no++;
+		$id_cek=$new_dtanilai['id'];
+	}
+	if ($no<=0){
+		mysqli_query($konek,"INSERT INTO `nilai`( `mtk`, `biologi`, `fisika`, `sejarah`, `geografi`, `bi`, `jurusan`, `tanggal`, `nisn`) 
 		VALUES($mtk,
 			   $biologi,
 			   $fisika,
@@ -39,7 +46,10 @@ if ($cek=='y') {
 			   '$kata',
 			   '$tanggal',
 			   '$nisn')");
-
+	}else{
+	mysqli_query($konek,"UPDATE nilai SET mtk=$mtk, biologi=$biologi ,fisika=$fisika ,sejarah=$sejarah, 
+		geografi=$geografi, bi=$bi, tanggal='$tanggal' ,jurusan='$kata' WHERE id=$id_cek");
+	}
 }else{
 	echo "<script type='text/javascript'>alert('Centang Dulu Sebelum Lanjut');</script>";
 	echo "<meta http-equiv='refresh' content='0; URL=http://localhost/SPK-penentu_jurusan/index.php?halaman=input_nilai&nisn=$nisn'/>";
@@ -47,8 +57,19 @@ if ($cek=='y') {
 }
 ?>
 <div class="container">
+	<div class="col-sm-4"></div>
+	<div class="col-sm-4" style="background-color:greenyellow;font-size:30pt;text-align:center;">
+		<?php echo $kata ?>
+	</div>
+	<div class="col-sm-4"></div>
+</div>
+<!-- == -->
+<div class="container">
 	<div class="col-sm-6">
-	Input nilai pada tanggal:<?php echo $tanggal ?>
+		<div class="panel panel-info" style="margin-top:10px">
+			<div class="panel-heading">Detail Info</div>
+			<div class="panel-body">
+				
 		<div class="panel panel-info" style="margin-top:20px">
 			<div class="panel-heading">Nilai IPA</div>
 			<div class="panel-body">
@@ -109,9 +130,14 @@ if ($cek=='y') {
 			</div>
 		</div>
 		Ada yang salah?..<a href="index.php?halaman=input_nilai&nisn=<?php echo $nisn ?>" class="label label-danger">Masukkan Ulang nilai</a>
+			</div>
+		</div>
 	</div>
 	<div class="col-sm-6">
-	<canvas id="myChart"></canvas>
+		<div class="panel panel-info" style="margin-top:10px">
+			<div class="panel-heading">Grafik</div>
+			<div class="panel-body">
+				<canvas id="myChart"></canvas>
 		<script type="text/javascript">
 			var ctx = document.getElementById('myChart').getContext('2d');
 			var chart = new Chart(ctx, {
@@ -126,7 +152,7 @@ if ($cek=='y') {
 	            backgroundColor: 'rgb(255, 99, 132)',
 	            borderColor: 'rgb(255, 99, 132)',
 	            data: [<?php echo $biologi ?>, <?php echo $fisika ?>, <?php echo $mtk ?>, 
-	            <?php echo $sejarah ?>, <?php echo $geografi ?>, <?php echo $bi ?>],
+	            <?php echo $sejarah ?>, <?php echo $geografi ?>, <?php echo $bi ?>,0],
 	        }]
 	    	},
 
@@ -146,10 +172,10 @@ if ($cek=='y') {
     		data: {
         	labels: ["IPA","IPS"],
 	        datasets: [{
-	            label: "Perbandingan",
+	            label: "Presentase",
 	            backgroundColor: ['rgb(0, 255, 255)','rgb(54, 162, 235)'],
 	            borderColor: 'rgb(255, 99, 132)',
-	            data: [<?php echo $persen_ipa ?>,<?php echo $persen_ips; ?>],
+	            data: [<?php echo $persen_ipa ?>,<?php echo $persen_ips; ?>,100,0],
 	        }]
 	    	},
 
@@ -157,5 +183,7 @@ if ($cek=='y') {
 	   	 	options: {}
 			});
 		</script>
+			</div>
+		</div>
 	</div>
 </div>

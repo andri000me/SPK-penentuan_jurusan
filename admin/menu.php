@@ -17,7 +17,7 @@
 	<nav class="navbar navbar-default">
 		<div class="container">
 			<div class="navbar-header">
-				<a class="navbar-brand navbar-link" href="index.php?page=home">Cek-Tujuan</a>
+				<a class="navbar-brand navbar-link" href="index.php?page=home">SPK-SMA</a>
 			</div>
 			<div class="navbar-collapse" id="navcol-1" name="navcol-1">
 				<UL class="nav navbar-nav navbar-right" >
